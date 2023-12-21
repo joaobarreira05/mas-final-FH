@@ -122,6 +122,23 @@
             var container = document.querySelector('.container');
             container.classList.toggle('active');
         }
+
+        var pedidosEntreguesString = localStorage.getItem("pedidosEntreguesKey");
+        var pedidosEntregues = pedidosEntreguesString ? JSON.parse(pedidosEntreguesString) : [];
+
+// Log the delivered orders list
+        console.log(pedidosEntregues);
+
+        document.addEventListener("DOMContentLoaded", function() {
+        // Get the button from the HTML
+        var botaoClearPedidosEntregues = document.getElementById("clear-pedidos-entregues");
+
+        // Add an event listener to the button
+        botaoClearPedidosEntregues.addEventListener("click", function() {
+            // Clear the delivered orders list in local storage
+            localStorage.setItem("pedidosEntreguesKey", JSON.stringify([]));
+        });
+        });
     </script>
   </body>
 </html>

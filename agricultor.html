@@ -82,33 +82,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
  // If there is a product list, parse it back into an array
  if (productListString) {
-     var productList = JSON.parse(productListString);
+   var productList = JSON.parse(productListString);
 
-     // For each product in the list, create a new list item and add it to the list
-     for (var i = 0; i < productList.length; i++) {
-         var product = productList[i];
-         var listItem = document.createElement("li");
-         listItem.textContent = product;
+   // Retrieve the delivered orders list from local storage
+   var pedidosEntreguesString = localStorage.getItem("pedidosEntreguesKey");
+   var pedidosEntregues = pedidosEntreguesString ? JSON.parse(pedidosEntreguesString) : [];
 
-         // Add the "Entregar Pedido" button to the list item
-         var botaoEntregarPedido = document.createElement("button");
-         botaoEntregarPedido.textContent = "Entregar Pedido";
-         botaoEntregarPedido.addEventListener("click", function() {
-             // Show an alert
-             alert("Pedido entregue!");
+   // For each product in the list, create a new list item and add it to the list
+   for (var i = 0; i < productList.length; i++) {
+       var product = productList[i];
+       var listItem = document.createElement("li");
+       listItem.textContent = product;
 
-             // Redirect to the index2.html page when the button is clicked
-             window.location.href = "index2.html";
-         });
-         listItem.appendChild(botaoEntregarPedido);
+       // Add the "Entregar Pedido" button to the list item
+       var botaoEntregarPedido = document.createElement("button");
+       botaoEntregarPedido.textContent = "Entregar Pedido";
+       (function(index) {
+           botaoEntregarPedido.addEventListener("click", function() {
+               // Show an alert
+               alert("Pedido entregue!");
 
-         // Add the list item to the list
-         var listaPedidos = document.getElementById("lista-pedidos");
-         listaPedidos.appendChild(listItem);
-     }
+               // Remove the product from the product list
+               productList.splice(index, 1);
+
+               // Add the product to the delivered orders list
+               pedidosEntregues.push(product);
+
+               // Update the product list and delivered orders list in local storage
+               localStorage.setItem("productListKey", JSON.stringify(productList));
+               localStorage.setItem("pedidosEntreguesKey", JSON.stringify(pedidosEntregues));
+
+               // Redirect to the index2.html page when the button is clicked
+               window.location.href = "index2.html";
+           });
+       })(i);
+       listItem.appendChild(botaoEntregarPedido);
+
+       // Add the list item to the list
+       var listaPedidos = document.getElementById("lista-pedidos");
+       listaPedidos.appendChild(listItem);
+   }
  }
 });
-
 
     
     </script>
