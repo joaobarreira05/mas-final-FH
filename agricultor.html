@@ -77,33 +77,26 @@
   
   <script>
  document.addEventListener("DOMContentLoaded", function() {
-    // Verifique se há detalhes do pedido armazenados localmente
-    var pedidoDetalhes = localStorage.getItem("pedidoDetalhes");
+   // Retrieve the product list from local storage
+   var productListString = localStorage.getItem("productListKey");
 
-    // Se houver detalhes do pedido, exiba-os na página
-    if (pedidoDetalhes) {
-        // Limpe os detalhes do pedido armazenados localmente
-        localStorage.removeItem("pedidoDetalhes");
+   // If there is a product list, parse it back into an array
+   if (productListString) {
+       var productList = JSON.parse(productListString);
 
-        // Adicione o pedido à lista de pedidos
-        var listaPedidos = document.getElementById("lista-pedidos");
-        var novoPedido = document.createElement("li");
-        novoPedido.textContent = pedidoDetalhes;
+       // For each product in the list, create a new list item and add it to the list
+       for (var i = 0; i < productList.length; i++) {
+           var product = productList[i];
+           var listItem = document.createElement("li");
+           listItem.textContent = product;
 
-        // Adicione o botão "Entregar Pedido" ao pedido
-        var botaoEntregarPedido = document.createElement("button");
-        botaoEntregarPedido.textContent = "Entregar Pedido";
-
-        // Redireciona para a página index2.html quando o botão é clicado
-        botaoEntregarPedido.addEventListener("click", function() {
-            // Redireciona para a página index2.html
-            window.location.href = "index2.html";
-        });
-
-        novoPedido.appendChild(botaoEntregarPedido);
-        listaPedidos.appendChild(novoPedido);
-    }
+           // Add the list item to the list
+           var listaPedidos = document.getElementById("lista-pedidos");
+           listaPedidos.appendChild(listItem);
+       }
+   }
 });
+
     
     </script>
 <script src="mudarpedido.js"></script>

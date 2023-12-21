@@ -29,6 +29,12 @@ function addProduct(id) {
     console.log("Product list saved to local storage");
  }
 
+ function clearProductList() {
+    // Clear the product list from local storage
+    localStorage.removeItem('productListKey');
+ 
+    console.log("Product list cleared from local storage");
+ }
 
 
 
