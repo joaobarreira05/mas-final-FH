@@ -4,6 +4,7 @@ let precoTotal = 0;
 let qtdTotal = 0;
 let productList = [];
 
+
 function addProduct(id) {
     let productName = document.querySelector(`button[name="${id}"]`).name;
     productList.push(productName);

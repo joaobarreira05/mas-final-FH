@@ -76,26 +76,39 @@
   </body>
   
   <script>
- document.addEventListener("DOMContentLoaded", function() {
-   // Retrieve the product list from local storage
-   var productListString = localStorage.getItem("productListKey");
+document.addEventListener("DOMContentLoaded", function() {
+ // Retrieve the product list from local storage
+ var productListString = localStorage.getItem("productListKey");
 
-   // If there is a product list, parse it back into an array
-   if (productListString) {
-       var productList = JSON.parse(productListString);
+ // If there is a product list, parse it back into an array
+ if (productListString) {
+     var productList = JSON.parse(productListString);
 
-       // For each product in the list, create a new list item and add it to the list
-       for (var i = 0; i < productList.length; i++) {
-           var product = productList[i];
-           var listItem = document.createElement("li");
-           listItem.textContent = product;
+     // For each product in the list, create a new list item and add it to the list
+     for (var i = 0; i < productList.length; i++) {
+         var product = productList[i];
+         var listItem = document.createElement("li");
+         listItem.textContent = product;
 
-           // Add the list item to the list
-           var listaPedidos = document.getElementById("lista-pedidos");
-           listaPedidos.appendChild(listItem);
-       }
-   }
+         // Add the "Entregar Pedido" button to the list item
+         var botaoEntregarPedido = document.createElement("button");
+         botaoEntregarPedido.textContent = "Entregar Pedido";
+         botaoEntregarPedido.addEventListener("click", function() {
+             // Show an alert
+             alert("Pedido entregue!");
+
+             // Redirect to the index2.html page when the button is clicked
+             window.location.href = "index2.html";
+         });
+         listItem.appendChild(botaoEntregarPedido);
+
+         // Add the list item to the list
+         var listaPedidos = document.getElementById("lista-pedidos");
+         listaPedidos.appendChild(listItem);
+     }
+ }
 });
+
 
     
     </script>
