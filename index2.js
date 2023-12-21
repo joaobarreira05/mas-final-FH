@@ -3,7 +3,7 @@ var vm = function () {
     self.farmers = ko.observableArray([]);
     self.uniqueProducts = ko.observableArray([]);
     self.currentLayout = ko.observable('layout1');
-    self.productList = ko.observable([])
+    self.productList = ko.observableArray([])
     self.all_products = ko.observableArray([
       {"name": "Maçãs", "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg"},
       {"name": "Tomates", "link": "https://tomatesdooeste.pt/images/tomate2.png"},
@@ -46,15 +46,10 @@ var vm = function () {
 
 
     getlist = function () {
-        var productListString = localStorage.getItem('productListKey');
-    
-        // Parse the retrieved string into a JavaScript array
-        self.productList = JSON.parse(productListString) || [];
-    
-        // Now, 'productList' contains the array from the local storage
-        console.log(productList);
-    };
-
+      var productListString = localStorage.getItem('productListKey');
+      self.productList = JSON.parse(productListString) || [];
+      console.log(self.productList);
+  };
 
     self.farmers = [
       {
@@ -295,11 +290,9 @@ var vm = function () {
 var viewModel = new vm();
 viewModel.currentLayout = ko.observable('layout1');
 
-
-// Apply bindings when the document is ready
+// Aplica os bindings quando o documento estiver pronto
 $(document).ready(function () {
     console.log("Page is ready!");
     getlist();
-    ko.applyBindings(new vm());
+    ko.applyBindings(viewModel);
 });
-
