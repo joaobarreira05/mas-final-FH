@@ -2,13 +2,40 @@
 let inputQtdTotal = document.getElementById("quantidades");
 let precoTotal = 0;
 let qtdTotal = 0;
+let productList = [];
+
+function addProduct(id) {
+    let productName = document.querySelector(`button[name="${id}"]`).name;
+    productList.push(productName);
+    console.log(productList);
+  }
+
+function saveProductList() {
+        // Convert the array to a string using JSON.stringify
+        let productListString = JSON.stringify(productList);
+
+        // Store the string in the local storage
+        localStorage.setItem('productListKey', productListString);
+
+        // Optionally, you can clear the productList array after saving to local storage
+        productList = [];
+
+        console.log("Product list saved to local storage");
+    }
 
 
-function addProduct(number) {
-    let quantidadeProdutoSelecionado = document.getElementById("qty" + number);
-    quantidadeProdutoSelecionado.value++;
-    calculate();
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 function calculate() {
     let precAtual, qtdAtual;

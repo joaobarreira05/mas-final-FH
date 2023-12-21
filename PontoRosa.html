@@ -89,7 +89,7 @@
                         </div>
                     
                 </div>
-                    <button type="submit" onclick="enviarEValidarPedido()" class="btn btn-primary" title="Enviar pedido">Pagar</button>
+                    <button type="submit" onclick="enviarEValidarPedido();saveProductList()" class="btn btn-primary" title="Enviar pedido">Pagar</button>
                 
             </div>
             <hr />
@@ -101,9 +101,9 @@
                         style="max-width: 100%; height: 100px" />
                     <input type="hidden" id="qty1" name="qty1" value="0" />
                     <h5>Batata<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price1" name="price1" value="4.99"
+                    <div class="text-danger text-right"><input id="price1" name="Batatas" value="4.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(1)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Batatas" onclick="this.blur(); addProduct('Batatas');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
                 <div class="col-sm-4 text-center">
@@ -111,18 +111,18 @@
                         style="max-width: 100%; height: 100px;" />
                     <input type="hidden" id="qty2" name="qty2" value="0" />
                     <h5>Maçãs<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price2" name="price2" value="1.99"
+                    <div class="text-danger text-right"><input id="price2" name="Maçãs" value="1.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(2)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Maçãs" onclick="this.blur(); addProduct('Maçãs');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
                 <div class="col-sm-4 text-center">
                     <img src="https://tomatesdooeste.pt/images/tomate2.png " style="max-width: 100%; height: 100px" />
                     <input type="hidden" id="qty3" name="qty3" value="0" />
                     <h5>Tomates<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price3" name="price3" value="9.99"
+                    <div class="text-danger text-right"><input id="price3" name="Tomates" value="9.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(3)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Tomates" onclick="this.blur(); addProduct('Tomates');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
             </div>
@@ -133,27 +133,27 @@
                     <img src="https://pecadefruta.com/wp-content/uploads/2020/10/Cenoura-1.jpg" style="max-width: 100%; height: 100px" />
                     <input type="hidden" id="qty4" name="qty4" value="0" />
                     <h5>Cenouras<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price4" name="price4" value="6.99"
+                    <div class="text-danger text-right"><input id="price4" name="Cenouras" value="6.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(4)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Cenouras" onclick="this.blur(); addProduct('Cenouras');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
                 <div class="col-sm-4 text-center">
                     <img src="https://www.liderfrutas.com/images/products/441558351643.jpg" style="max-width: 100%; height: 100px" />
                     <input type="hidden" id="qty5" name="qty5" value="0" />
                     <h5>Cebolas<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price5" name="price5" value="6.99"
+                    <div class="text-danger text-right"><input id="price5" name="Cebolas" value="6.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(5)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Cebolas" onclick="this.blur(); addProduct('Cebolas');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
                 <div class="col-sm-4 text-center">
                     <img src="https://www.liderfrutas.com/images/products/261558139629.jpg" style="max-width: 100%; height: 100px" />
                     <input type="hidden" id="qty6" name="qty6" value="0" />
                     <h5>Alfaces<br /><small></small></h5>
-                    <div class="text-danger text-right"><input id="price6" name="price6" value="9.99"
+                    <div class="text-danger text-right"><input id="price6" name="Alfaces" value="9.99"
                             class="text-danger text-right border-0" readonly> €</div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="this.blur(); addProduct(6)"><i
+                            <button type="button" class="btn btn-primary btn-block" name="Alfaces" onclick="this.blur(); addProduct('Alfaces');"><i
                             class="fa fa-shopping-bag"></i> </button>
                 </div>
             </div>
