@@ -10,29 +10,24 @@ function addProduct(id) {
     console.log(productList);
   }
 
-function saveProductList() {
-        // Convert the array to a string using JSON.stringify
-        let productListString = JSON.stringify(productList);
-
-        // Store the string in the local storage
-        localStorage.setItem('productListKey', productListString);
-
-        // Optionally, you can clear the productList array after saving to local storage
-        productList = [];
-
-        console.log("Product list saved to local storage");
-    }
-
-
-
-
-
-
-
-
-
-
-
+  function saveProductList() {
+    // Retrieve the existing product list from local storage
+    let existingProductList = JSON.parse(localStorage.getItem('productListKey')) || [];
+ 
+    // Add the new product to the existing list
+    existingProductList.push(productList);
+ 
+    // Convert the array to a string using JSON.stringify
+    let productListString = JSON.stringify(existingProductList);
+ 
+    // Store the string in the local storage
+    localStorage.setItem('productListKey', productListString);
+ 
+    // Optionally, you can clear the productList array after saving to local storage
+    productList = [];
+ 
+    console.log("Product list saved to local storage");
+ }
 
 
 
