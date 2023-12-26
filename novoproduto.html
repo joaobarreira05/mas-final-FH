@@ -15,7 +15,8 @@
     <head>
         <style>
             body {
-                padding-top: 56px; /* Ajusta a altura da barra de navegação no topo */
+                padding-top: 56px; /* Keep the padding-top for the top navbar */
+                overflow-y: auto; /* Ajusta a altura da barra de navegação no topo */
             }
         
             .navbar {
@@ -51,11 +52,12 @@
                     <i class="fa fa-tree mx-auto" aria-hidden="true" style="color: black; font-size: 40px;"></i>
                     <span class="mx-auto"><h3><b>MEUS PRODUTOS</b></h3></span>
                 </div>
+                <button type="button" class="btn btn-danger mt-3" onclick="clearProducts()">Clear Products</button>
             </div>
         </nav>
     
-        <div class="col-12" style="height: 800px; overflow-y: auto;">
-            <div id="cardsContainer" class="album py-5 bg-body-tertiary col-12 mx-auto">
+        <div class="col-12" >
+            <div id="cardsContainer" class="album py-5 bg-body-tertiary col-12 mx-auto"style="height: 600px; overflow-y: auto;">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" data-bind="foreach: all_products">
                         <div class="col mb-4">
@@ -165,6 +167,17 @@
                 adicionarCardProduto(produto);
             });
         });
+
+        function clearProducts() {
+        // Limpar os produtos no localStorage
+        localStorage.removeItem('produtos');
+
+        // Limpar os cards no HTML
+        var cardsContainer = document.getElementById('cardsContainer');
+        cardsContainer.innerHTML = "";
+
+        location.reload();
+    }
         
         
     </script>
