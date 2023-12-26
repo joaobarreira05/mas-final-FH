@@ -39,6 +39,12 @@ function addProduct(id) {
 
 
 
+ function adicionarPreco(number) {
+    let quantidadeProdutoSelecionado = document.getElementById("qty" + number);
+    quantidadeProdutoSelecionado.value++;
+    calculate();
+}
+
 function calculate() {
     let precAtual, qtdAtual;
     precoTotal = 0;
